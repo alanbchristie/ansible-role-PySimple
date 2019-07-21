@@ -1,0 +1,19 @@
+---
+
+# NOTE: meta.name(space) comes from CR metadata
+#       when run with Ansible Operator
+#       deploy/crds has an example CR for reference
+name: "{{ meta.name|default('pysimple') }}"
+namespace: "{{ meta.namespace|default('pysimple') }}"
+image: docker.io/alanbchristie/pysimple
+image_tag: latest
+
+# To uninstall from the cluster
+# state: absent
+state: present
+
+# The size of the pysimple deployment
+size: 1
+
+# The port to expose the PySimple service on
+service_port: 8080

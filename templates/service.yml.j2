@@ -1,0 +1,19 @@
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ name }}
+  namespace: {{ namespace }}
+  labels:
+    app: {{ name }}
+    service: {{ name }}
+spec:
+  ports:
+  - name: pysimple
+    port: {{ service_port }}
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: {{ name }}
+    service: {{ name }}
