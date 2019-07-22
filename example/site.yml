@@ -1,0 +1,8 @@
+---
+
+- hosts: servers
+  tasks:
+  - include_role:
+      name: alanbchristie.pysimple
+    vars:
+      image_tag: '2019.1'

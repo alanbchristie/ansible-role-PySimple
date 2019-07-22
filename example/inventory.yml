@@ -1,0 +1,13 @@
+---
+
+# Our inventory.
+
+all:
+  vars:
+    ansible_connection: local
+    ansible_python_interpreter: /Users/alan/anaconda3/envs/ansible-role-pysimple/bin/python
+
+  children:
+    servers:
+      hosts:
+        localhost:

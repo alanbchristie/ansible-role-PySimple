@@ -12,7 +12,23 @@ Requirements
 Role Variables
 --------------
 
-See [defaults/main.yml](defaults/main.yml).
+    # The container image reference,
+    # the default is the author's image on Docker Hub.
+    image: docker.io/alanbchristie/pysimple
+    
+    # The image tag, typiclaly 'latest'.
+    # Alternative tags include '2019.1' and,
+    # for ARM-based deployments, 'arm32v7-latest'
+    image_tag: latest
+
+    # To uninstall from the cluster
+    # state: absent
+    state: present
+
+    # The namespace (project) to deploy to.
+    # When used by an Ansible Operator `meta.name(space)`
+    # comes from the custom-resource (CR) metadata.
+    namespace: "{{ meta.namespace|default('pysimple') }}"
 
 Dependencies
 ------------

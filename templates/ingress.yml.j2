@@ -1,0 +1,17 @@
+---
+
+kind: Ingress
+apiVersion: networking.k8s.io/v1beta1
+metadata:
+  name: pysimple
+  namespace: {{ namespace }}
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /pysimple
+        backend:
+          serviceName: pysimple
+          servicePort: 8080

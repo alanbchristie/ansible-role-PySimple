@@ -12,6 +12,7 @@ galaxy_info:
   - name: Kubernetes
     versions:
     - 1.14
+    - 1.15
   - name: OpenShift
     versions:
     - 3.11
