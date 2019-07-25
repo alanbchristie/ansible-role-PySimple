@@ -16,6 +16,8 @@ Ensure [Minikube] is running...
     $ minikube start --cpus 4 --memory 8192 --disk-size 40g \
         --kubernetes-version v1.15.0 \
         --vm-driver virtualbox
+    $ kubectl create -f namespace.yaml
+    $ kubectl config set-context --current --namespace=pysimple
 
 >   Tested using Minikube v1.2.0 and Kubernetes v1.15.0
 
@@ -56,6 +58,8 @@ and un-deploy playbook...
 Ensuring your [PiKs] cluster is running: -
 
     $ export KUBECONFIG=/Users/alan/.kube/k3s.yaml
+    $ kubectl create -f namespace.yaml
+    $ kubectl config set-context --current --namespace=pysimple
 
 and then to deploy via the ansible playbook (where you may need
 to provide the location of your Python installation)...
