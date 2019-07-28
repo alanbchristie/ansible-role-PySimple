@@ -1,5 +1,5 @@
-Role Name
-=========
+Ansible Role - alanbchristie.pysimple
+=====================================
 
 A Role for the installation of the PySimple application into a Kubernetes
 (or OpenShift) cluster.
@@ -39,8 +39,7 @@ Example Playbook
 ----------------
 
 **NOTE** The example below assumes that you have a running Kubernetes|OpenShift
-cluster and that you have sufficient permissions in the
-`pysimple` namespace.
+cluster and that you have sufficient permissions in the `pysimple` namespace.
 
     - hosts: servers
       tasks:
