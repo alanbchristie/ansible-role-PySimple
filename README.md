@@ -16,8 +16,8 @@ Role Variables
     # the default is the author's image on Docker Hub.
     image: docker.io/alanbchristie/pysimple
     
-    # The image tag, typiclaly 'latest'.
-    # Alternative tags include '2019.1' and,
+    # The image tag, typically 'latest'.
+    # Alternative tags include '2019.3' and,
     # for ARM-based deployments, 'arm32v7-latest'
     image_tag: latest
 
@@ -46,7 +46,7 @@ cluster and that you have sufficient permissions in the `pysimple` namespace.
       - include_role:
           name: alanbchristie.pysimple
         vars:
-          image_tag: '2019.1'
+          image_tag: '2019.3'
 
 License
 -------
