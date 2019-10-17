@@ -41,7 +41,7 @@ Ensure [MiniShift] is running and a project exists: -
     $ eval $(minishift oc-env)
     $ oc new-project pysimple
 
->   Tested using Minishift v1.34.0 and OpenShifft v3.11
+>   Tested using Minishift v1.34.0 and OpenShift v3.11
 
 and then to deploy via the ansible playbook (where you may need
 to provide the location of your Python installation)...

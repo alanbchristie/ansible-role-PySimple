@@ -1,5 +1,5 @@
-Role Name
-=========
+Ansible Role - alanbchristie.pysimple
+=====================================
 
 A Role for the installation of the PySimple application into a Kubernetes
 (or OpenShift) cluster.
@@ -16,8 +16,8 @@ Role Variables
     # the default is the author's image on Docker Hub.
     image: docker.io/alanbchristie/pysimple
     
-    # The image tag, typiclaly 'latest'.
-    # Alternative tags include '2019.1' and,
+    # The image tag, typically 'latest'.
+    # Alternative tags include '2019.3' and,
     # for ARM-based deployments, 'arm32v7-latest'
     image_tag: latest
 
@@ -39,15 +39,14 @@ Example Playbook
 ----------------
 
 **NOTE** The example below assumes that you have a running Kubernetes|OpenShift
-cluster and that you have sufficient permissions in the
-`pysimple` namespace.
+cluster and that you have sufficient permissions in the `pysimple` namespace.
 
     - hosts: servers
       tasks:
       - include_role:
           name: alanbchristie.pysimple
         vars:
-          image_tag: '2019.1'
+          image_tag: '2019.3'
 
 License
 -------
