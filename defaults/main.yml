@@ -8,6 +8,11 @@ namespace: "{{ meta.namespace|default('pysimple') }}"
 image: docker.io/alanbchristie/pysimple
 image_tag: 2019.5
 
+# The PySimple Kubernetes Ingress host domain.
+# This sets the host domain in the ingress rule.
+# Using the default the ingress host will be 'pysimple.matildapeak.io'
+ingress_domain: matildapeak.io
+
 # To uninstall from the cluster
 # state: absent
 state: present
