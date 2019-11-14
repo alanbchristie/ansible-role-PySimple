@@ -19,16 +19,19 @@ Role Variables
     # The image tag, typically 'latest'.
     # Alternative tags include '2019.3' and,
     # for ARM-based deployments, 'arm32v7-latest'
-    image_tag: latest
+    image_tag: 2019.5
 
+    # The PySimple Kubernetes Ingress host domain.
+    # This sets the host domain in the ingress rule.
+    # Using the default the ingress host will be 'pysimple.matildapeak.io'
+    ingress_domain: matildapeak.io
+    
     # To uninstall from the cluster
     # state: absent
     state: present
-
-    # The namespace (project) to deploy to.
-    # When used by an Ansible Operator `meta.name(space)`
-    # comes from the custom-resource (CR) metadata.
-    namespace: "{{ meta.namespace|default('pysimple') }}"
+    
+    # The size of the deployment
+    size: 1
 
 Dependencies
 ------------
