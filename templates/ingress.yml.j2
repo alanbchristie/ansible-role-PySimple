@@ -9,7 +9,7 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: pysimple.{{ ingress_domain }}
+  - host: {{ ingress_host }}
     http:
       paths:
       - path: /
