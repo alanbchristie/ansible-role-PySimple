@@ -14,6 +14,3 @@ state: present
 
 # The size of the deployment
 size: 1
-
-# The port to expose the service on
-service_port: 8080
