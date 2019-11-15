@@ -6,7 +6,7 @@
 
 - name: Volume claim ({{ volume_class }})
   k8s:
-    state: '{{ state }}'
+    state: "{{ state }}"
     definition: "{{ lookup('template', item.name)|from_yaml }}"
   when: use_persistent_volume|bool
   loop:
@@ -14,13 +14,13 @@
 
 - name: Set objects state={{ state }}
   k8s:
-    state: '{{ state }}'
+    state: "{{ state }}"
     definition: "{{ lookup('template', item.name)|from_yaml }}"
   when: item.api_exists|default(True)
   loop:
-    - name: deployment.yml.j2
-    - name: service.yml.j2
-    - name: route.yml.j2
-      api_exists: "{{ True if 'route.openshift.io' in api_groups else False }}"
-    - name: ingress.yml.j2
-      api_exists: "{{ True if 'networking.k8s.io' in api_groups else False }}"
+  - name: deployment.yml.j2
+  - name: service.yml.j2
+  - name: route.yml.j2
+    api_exists: "{{ True if 'route.openshift.io' in api_groups else False }}"
+  - name: ingress.yml.j2
+    api_exists: "{{ True if 'networking.k8s.io' in api_groups else False }}"

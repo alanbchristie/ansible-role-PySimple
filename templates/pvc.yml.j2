@@ -1,7 +1,10 @@
+---
+
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ name }}
+  name: pysimple-pvc
+  namespace: {{ namespace }}
 spec:
   accessModes:
   - ReadWriteOnce
