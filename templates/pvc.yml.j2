@@ -3,7 +3,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: pysimple-pvc
+  name: {{ name }}-pvc
   namespace: {{ namespace }}
 spec:
   accessModes:

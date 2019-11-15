@@ -45,9 +45,9 @@ spec:
 {% if use_persistent_volume %}
         volumeMounts:
         - mountPath: /data
-          name: {{ name }}
+          name: {{ name }}-volume
       volumes:
-      - name: {{ name }}
+      - name: {{ name }}-volume
         persistentVolumeClaim:
-          claimName: {{ name }}
+          claimName: {{ name }}-pvc
 {% endif %}
