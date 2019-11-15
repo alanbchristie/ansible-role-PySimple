@@ -5,6 +5,7 @@
 #       deploy/crds has an example CR for reference
 name: "{{ meta.name|default('pysimple') }}"
 namespace: "{{ meta.namespace|default('pysimple') }}"
+
 image: docker.io/alanbchristie/pysimple
 image_tag: 2019.5
 
@@ -12,6 +13,11 @@ image_tag: 2019.5
 # This sets the host domain in the ingress rule.
 # Using the default the ingress host will be empty
 ingress_host:
+
+# Add a persistent volume to the deployment?
+# If so, what storage class?
+use_persistent_volume: no
+volume_class: longhorn
 
 # To uninstall from the cluster
 # state: absent

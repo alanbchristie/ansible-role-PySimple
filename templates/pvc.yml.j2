@@ -1,0 +1,11 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ name }}
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: {{ volume_class }}
+  resources:
+    requests:
+      storage: 100Mi

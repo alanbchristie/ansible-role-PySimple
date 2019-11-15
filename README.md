@@ -23,9 +23,14 @@ Role Variables
 
     # The PySimple Kubernetes Ingress host domain.
     # This sets the host domain in the ingress rule.
-    # Using the default the ingress host will be 'pysimple.matildapeak.io'
-    ingress_domain: matildapeak.io
-    
+    # Using the default the ingress host will be empty
+    ingress_host:
+
+    # Add a persistent volume to the deployment?
+    # If so, what storage class?
+    use_persistent_volume: no
+    volume_class: longhorn
+
     # To uninstall from the cluster
     # state: absent
     state: present
@@ -50,6 +55,8 @@ cluster and that you have sufficient permissions in the `pysimple` namespace.
           name: alanbchristie.pysimple
         vars:
           image_tag: '2019.3'
+          use_persistent_volume: yes
+          volume_class: ebs
 
 License
 -------
