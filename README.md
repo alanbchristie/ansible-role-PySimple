@@ -31,6 +31,10 @@ Role Variables
     use_persistent_volume: no
     volume_class: longhorn
 
+    # Pod Security Policy
+    # Blank to avoid deploying roles and role-bindings
+    psp: ''
+
     # To uninstall from the cluster
     # state: absent
     state: present
