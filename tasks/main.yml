@@ -7,10 +7,8 @@
 - name: Volume claim ({{ volume_class }})
   k8s:
     state: "{{ state }}"
-    definition: "{{ lookup('template', '{{ item }}.yml.j2') }}"
+    definition: "{{ lookup('template', 'pvc.yml.j2') }}"
   when: use_persistent_volume|bool
-  loop:
-  - name: pvc
 
 - name: Deploy roles and bindings
   k8s:
@@ -18,18 +16,35 @@
     definition: "{{ lookup('template', '{{ item }}.yml.j2') }}"
   when: psp|string|length > 0
   loop:
-  - name: role
-  - name: role-binding-default
+  - role
+  - role-binding-default
 
-- name: Set objects state={{ state }}
+- name: Set OpenShift fact
+  set_fact:
+    is_openshift: "{{ True if 'route.openshift.io' in api_groups else False }}"
+
+- name: Deploy
   k8s:
     state: "{{ state }}"
-    definition: "{{ lookup('template', '{{ item.name }}.yml.j2') }}"
-  when: item.api_exists|default(True)
+    definition: "{{ lookup('template', '{{ item }}.yml.j2') }}"
   loop:
-  - name: deployment
-  - name: service
-  - name: route
-    api_exists: "{{ True if 'route.openshift.io' in api_groups else False }}"
-  - name: ingress
-    api_exists: "{{ True if 'networking.k8s.io' in api_groups else False }}"
+  - deployment
+  - service
+
+# Route or Ingress?
+
+- name: Deploy Route
+  k8s:
+    state: "{{ state }}"
+    definition: "{{ lookup('template', 'route.yml.j2') }}"
+  when:
+  - ingress_host|string|length > 0
+  - is_openshift|bool
+
+- name: Deploy Ingres
+  k8s:
+    state: "{{ state }}"
+    definition: "{{ lookup('template', 'ingress.yml.j2') }}"
+  when:
+  - ingress_host|string|length > 0
+  - not is_openshift|bool

@@ -16,7 +16,7 @@ Ensure [Minikube] is running...
     $ minikube start --cpus 4 --memory 8192 --disk-size 40g \
         --kubernetes-version v1.15.0 \
         --vm-driver virtualbox
-    $ kubectl create -f namespace.yaml
+    $ kubectl create -f namespace.yml
     $ kubectl config set-context --current --namespace=pysimple
 
 >   Tested using Minikube v1.2.0 and Kubernetes v1.15.0
@@ -24,12 +24,11 @@ Ensure [Minikube] is running...
 and then to deploy via the ansible playbook (where you may need
 to provide the location of your Python installation)...
 
-    $ ansible-playbook site.yml -e ansible_python_interpreter=???
+    $ ansible-playbook site.yml
 
 and un-deploy...
 
-    $ ansible-playbook site.yml  -e ansible_python_interpreter=??? \
-        -e state=absent
+    $ ansible-playbook site.yml -e state=absent
 
 ## Deploying to MiniShift
 

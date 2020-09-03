@@ -1,8 +1,11 @@
 ---
 
-- hosts: servers
+- hosts: localhost
   tasks:
   - include_role:
       name: alanbchristie.pysimple
     vars:
-      image_tag: '2019.1'
+      ingress_host: ''
+      use_persistent_volume: yes
+      volume_class: im-cinder-delete
+      psp: im-core-unrestricted

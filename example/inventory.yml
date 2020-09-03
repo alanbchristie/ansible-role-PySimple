@@ -5,7 +5,7 @@
 all:
   vars:
     ansible_connection: local
-    ansible_python_interpreter: /Users/alan/anaconda3/envs/ansible-role-pysimple/bin/python
+    ansible_python_interpreter: /usr/bin/env python
 
   children:
     servers:
