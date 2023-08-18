@@ -26,6 +26,12 @@ Role Variables
     # Using the default the ingress host will be empty
     ingress_host:
 
+    # The ingress certificate issuer (cert-manager)
+    ingress_issuer: acme-production
+
+    # The ingress class
+    ingress_issuer: nginx
+
     # Add a persistent volume to the deployment?
     # If so, what storage class?
     use_persistent_volume: no

@@ -1,18 +1,28 @@
 ---
-
 kind: Ingress
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 metadata:
   name: pysimple
   namespace: {{ namespace }}
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
+{% if ingress_issuer %}
+    cert-manager.io/cluster-issuer: {{ ingress_issuer }}
+{% endif %}
+{% if ingress_class == 'nginx' %}
+    nginx.ingress.kubernetes.io/rewrite-target: /
+{% elif ingress_class == 'traefik' %}
+    traefik.ingress.kubernetes.io/rewrite-target: /
+{% endif %}
 spec:
+  ingressClassName: {{ ingress_class }}
   rules:
   - host: {{ ingress_host }}
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: pysimple
-          servicePort: 8080
+          service:
+            name: pysimple
+            port:
+              name: http

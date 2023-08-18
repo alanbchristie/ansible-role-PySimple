@@ -3,6 +3,7 @@
 Initial preparation consists of installing Ansible and
 dependent modules (probably into a Python virtual environment).
 
+    $ pip install --upgrade pip
     $ pip install -r requirements.txt
     $ ansible-galaxy install -r requirements.yml
 
