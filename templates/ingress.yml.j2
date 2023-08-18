@@ -15,6 +15,12 @@ metadata:
 {% endif %}
 spec:
   ingressClassName: {{ ingress_class }}
+{% if ingress_issuer %}
+  tls:
+  - hosts:
+    - {{ ingress_host }}
+    secretName: pysimple-tls
+{% endif %}
   rules:
   - host: {{ ingress_host }}
     http:
