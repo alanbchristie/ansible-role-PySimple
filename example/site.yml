@@ -5,7 +5,8 @@
   - include_role:
       name: alanbchristie.pysimple
     vars:
-      ingress_host: ''
+      ingress_host: pysimple.example.com
+      ingress_issuer: letsencrypt-nginx-production
       use_persistent_volume: yes
-      volume_class: im-cinder-delete
+      volume_class: longhorn
       psp: im-core-unrestricted

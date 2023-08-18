@@ -7,7 +7,7 @@ dependent modules (probably into a Python virtual environment).
     $ pip install -r requirements.txt
     $ ansible-galaxy install -r requirements.yml
 
->   You probably need a VM like [VirualBox] (tested with v6.0.8) for
+>   You probably need a VM like [VirtualBox] (tested with v6.0.8) for
     MiniKube and MiniShift.
 
 ## Deploying to MiniKube
